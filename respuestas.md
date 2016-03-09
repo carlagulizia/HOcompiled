@@ -33,3 +33,22 @@ Al ejecutar nm calculator.e aparecen muchos mas elementos que los que tenia el o
                  U printf@@GLIBC_2.2.5
 
 Aqui se puede ver que main y add_numbers continuan igual al tiempo de ejecucion, pero ahora printf que antes de generar el ejecutabole no estaba definido, ahora si bien continua sin estar definido esta mediante una libreria dinamica GLIBC version 2.2.5 la cual lo definira al momento de ejecutarlo.
+
+
+*******************************************
+SIMBOLS:
+En simbols lo que se hizo fue "make object" en donde se genera el objeto a partir del codigo visibility.c.
+Los elementos al hacer nm visibility.o son
+0000000000000000 t add_abs
+000000000000002a T main
+                 U printf
+0000000000000000 r val1
+0000000000000004 R val2
+0000000000000000 d val3
+0000000000000004 D val4
+
+val 1 y val 2 es read only. Val 2 y val 4 se puede linkear y ver desde afuera, val 1 y 3 no.
+val 3 y val 4 son datos y se pueden leer y escribir. 
+printf al momento del objeto no esta definida, seguramente se defina con una libreria dinamica al tiempo de ejecucion.
+main y add_abs son segmentos definidos y ejecutables. 
+
