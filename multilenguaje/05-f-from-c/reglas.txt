@@ -1,0 +1,13 @@
+/Reglas.txt/
+
+En el archivo c-main.c agregué la sentencia
+extern void sum_abs_(int *inp, int *num, int *asum);/* NOTE: No olvidar de agregar el ";"
+Tambien declare asum como variable integer
+y luego 
+    sum_abs_(data, &num, &asum);
+    printf("sum=%d\n", asum);
+
+Para compilar primero genero como objetos por separados a los codigos C y Fortran90, y luego linkeo los dos generando el ejecutable
+gcc -c f-sum.f90 -o f-sum.o
+gcc -c c-main.c -o c-main.o
+gcc f-sum.o c-main.o -o c-main.e
