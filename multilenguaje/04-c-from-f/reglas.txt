@@ -1,0 +1,8 @@
+/Reglas.txt/
+Para linkear una subrutina en C desde Fortran:
+En subrutina C a las funciones incluirle un "_", y agregar asteristico porque fortran los toma como punteros. 
+Para compilar:
+gcc -c c-sum.c (Genera objeto c-sum.o)
+gcc f-main.f90 -c -o f-main.o (Genera objeto f-main.o)
+gcc c-sum.o f-main.o -lgfortran -o f-main.e (Genero el ejecutable)
+./f-main.e -> Respuesta 10000 
